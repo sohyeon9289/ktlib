@@ -59,16 +59,16 @@ import {
                 to: '/bookLists',
             }"
         />
-        <VerticalNavSectionTitle :item="{ heading: '포인트관리' }" />
+        <VerticalNavSectionTitle :item="{ heading: '정기구독 및 포인트관리' }" />
         <VerticalNavLink
             :item="{
-                title: '포인트',
+                title: '정기구독',
                 to: '/points',
             }"
         />
         <VerticalNavLink
             :item="{
-                title: '포인트목록',
+                title: '포인트',
                 to: '/pointsLists',
             }"
         />

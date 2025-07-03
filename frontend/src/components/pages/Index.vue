@@ -65,11 +65,11 @@ export default {
           link: "/bookLists",
       },
       {
-          text: "포인트",
+          text: "정기구독",
           link: "/points",
       },
       {
-          text: "포인트목록",
+          text: "포인트",
           link: "/pointsLists",
       },
       {

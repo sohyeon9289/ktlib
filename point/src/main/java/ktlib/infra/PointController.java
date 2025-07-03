@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/points")  // 이 부분은 주석 해제 OK
+@RequestMapping(value = "/points")  
 @Transactional
 public class PointController {
 

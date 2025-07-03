@@ -25,12 +25,10 @@ export default {
     setup() {
         const headers = ref([
             // 필드 디스크립터를 기반으로 헤더 설정
-            { title: "pointId", key: "pointId" },
-            { title: "userId", key: "userId" },
-            { title: "pointBalance", key: "pointBalance" },
-            { title: "pointRechargeDate", key: "pointRechargeDate" },
-            { title: "pointSpendDate", key: "pointSpendDate" },
-            { title: "readCost", key: "readCost" },
+            { title: "책제목", key: "title" },
+            { title: "책 구독비용", key: "readCost" },
+            { title: "남은 현재 포인트", key: "pointBalance" },
+            { title: "포인트 사용 날짜", key: "pointSpendDate" }
         ]);
 
         const items = ref([]);
