@@ -18,6 +18,15 @@
                 <v-btn :disabled="!selectedRow" style="margin-left: 5px;" @click="openEditDialog()" class="contrast-primary-text" small color="primary">
                     <v-icon small>mdi-pencil</v-icon>수정
                 </v-btn>
+                <v-btn
+                    :disabled="!selectedRow"
+                    style="margin-left: 5px;"
+                    color="green"
+                    small
+                    @click="publishbook"
+                    >
+                    출간요청
+                </v-btn>
             </div>
             <ManuscriptList @search="search" style="margin-bottom: 10px; background-color: #ffffff;"></ManuscriptList>
             <div class="mb-5 text-lg font-bold"></div>
@@ -137,10 +146,11 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { ref } from 'vue';
 import { useTheme } from 'vuetify';
 import BaseGrid from '../base-ui/BaseGrid.vue'
-
+import ManuscriptRepository from '../repository/ManuscriptRepository';
 
 export default {
     name: 'manuscriptGrid',
@@ -150,9 +160,26 @@ export default {
     data: () => ({
         path: 'manuscripts',
     }),
+    created() {
+        this.repository = new ManuscriptRepository(axios);
+        this.search(); // 최초 데이터 조회
+    },
     watch: {
     },
     methods:{
+    async publishbook() {
+      if (!this.selectedRow) return;
+      try {
+        if(this.selectedRow.status!=null){
+           throw("이미 처리된 요청입니다");
+        }
+        await this.repository.publishBook(this.selectedRow._links.self.href.split('/').pop());
+        this.success('출간 요청 되었습니다.');
+        await this.search();
+      } catch (e) {
+        this.error(e);
+      }
+    },
     }
 }
 
