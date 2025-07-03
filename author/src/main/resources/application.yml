@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: author
+
+jwt:
+  secret: your_service_jwt_secret_key
+  expiration: 86400000 # 1 day in milliseconds
+
 ---
 
 spring:
@@ -50,6 +55,11 @@ server:
   port: 8082
 
 ---
+
+
+jwt:
+  secret: your_service_jwt_secret_key
+  expiration: 86400000 # 1 day in milliseconds
 
 spring:
   profiles: docker

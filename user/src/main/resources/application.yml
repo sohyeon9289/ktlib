@@ -4,6 +4,20 @@ server:
 spring:
   application:
     name: user
+
+---
+
+spring:
+  security:
+    user:
+      name: user
+      password: password
+jwt:
+  secret: your_service_jwt_secret_key
+  expiration: 86400000 # 1 day in milliseconds
+
+
+
 ---
 
 spring:
@@ -82,3 +96,6 @@ spring:
           contentType: application/json
 
 
+jwt:
+  secret: your_service_jwt_secret_key
+  expiration: 86400000 # 1 day in milliseconds
