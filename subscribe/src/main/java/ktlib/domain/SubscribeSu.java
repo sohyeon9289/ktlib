@@ -1,11 +1,6 @@
 package ktlib.domain;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.time.LocalDate;
-import java.util.Collections;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
 import javax.persistence.*;
 import ktlib.SubscribeApplication;
 import ktlib.domain.BookSubscribed;
@@ -28,7 +23,7 @@ public class SubscribeSu {
 
     private Date subscribedAt;
 
-    private Date expriedAt;
+    private Date expiredAt;
 
     private Date paymentAt;
 
@@ -42,13 +37,11 @@ public class SubscribeSu {
         bookSubscribed.publishAfterCommit();
     }
 
-    @PreRemove
-    public void onPreRemove() {
-        CanceldBookSubscribe canceldBookSubscribe = new CanceldBookSubscribe(
-            this
-        );
-        canceldBookSubscribe.publishAfterCommit();
-    }
+@PreRemove
+public void onPreRemove() {
+    CanceldBookSubscribe canceldBookSubscribe = new CanceldBookSubscribe(this);
+    canceldBookSubscribe.publishAfterCommit();
+}
 
     public static SubscribeSuRepository repository() {
         SubscribeSuRepository subscribeSuRepository = SubscribeApplication.applicationContext.getBean(

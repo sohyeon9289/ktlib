@@ -1,44 +1,42 @@
 package ktlib.domain;
 
-import java.time.LocalDate;
-import java.util.*;
-import ktlib.domain.*;
-import ktlib.infra.AbstractEvent;
-import lombok.*;
+import lombok.Data;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 
-//<<< DDD / Domain Event
+import java.util.Date;  // ← 이거 중요
+
+
 @Data
 @ToString
+@NoArgsConstructor
 public class CanceldBookSubscribe extends AbstractEvent {
 
+    // 도메인 필드
     private Long subscriptionId;
     private Long bookId;
     private Long userId;
     private Date subscribedAt;
-    private Date expriedAt;
+    private Date expiredAt;
     private Date paymentAt;
     private Boolean paymentSuccess;
-<<<<<<< HEAD
-
-    public CanceldBookSubscribe(SubscribeSu aggregate) {
-        super(aggregate);
-=======
     private String reason;
 
-    public CanceldBookSubscribe(SubscribeSu aggregate) {
+    // 생성자 1: reason 포함
+    public CanceldBookSubscribe(SubscribeSu aggregate, String reason) {
         super(aggregate);
-        this.subscriptionId = aggregate.getId();
-        this.bookId = aggregate.getBookId();
-        this.userId = aggregate.getUserId();
-        this.subscribedAt = aggregate.getSubscribedAt();
-        this.expiredAt = aggregate.getExpiredAt();
-        this.paymentAt = aggregate.getPaymentAt();
-        this.paymentSuccess = aggregate.getPaymentSuccess();
->>>>>>> cc51f632aa39de85878eeed3e45ae4baeaf95442
+        this.subscriptionId = aggregate.getSubscriptionId();
+        this.bookId        = aggregate.getBookId();
+        this.userId        = aggregate.getUserId();
+        this.subscribedAt  = aggregate.getSubscribedAt();
+        this.expiredAt     = aggregate.getExpiredAt();
+        this.paymentAt     = aggregate.getPaymentAt();
+        this.paymentSuccess= aggregate.getPaymentSuccess();
+        this.reason        = reason;
     }
 
-    public CanceldBookSubscribe() {
-        super();
+    // 생성자 2: reason 없이 기본값으로 빈 문자열 넘김
+    public CanceldBookSubscribe(SubscribeSu aggregate) {
+        this(aggregate, "");
     }
 }
-//>>> DDD / Domain Event
