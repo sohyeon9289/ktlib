@@ -1,10 +1,10 @@
 <template>
-    <v-data-table
-        :headers="headers"
-        :items="items"
-        :items-per-page="5"
-        class="elevation-1"
-    ></v-data-table>
+  <v-data-table
+    :headers="headers"
+    :items="items"
+    :items-per-page="5"
+    class="elevation-1"
+  ></v-data-table>
 </template>
 
 <script>
@@ -13,46 +13,45 @@ import axios from 'axios';
 import { VDataTable } from 'vuetify/labs/VDataTable'
 
 export default {
-    name: 'ManuscriptListView',
-    components: {
-        VDataTable,
-    },
-    props: {
-        value: Object,
-        editMode: Boolean,
-        isNew: Boolean
-    },
-    setup() {
-        const headers = ref([
-            // 필드 디스크립터를 기반으로 헤더 설정
-            { title: "manuscriptId", key: "manuscriptId" },
-            { title: "title", key: "title" },
-            { title: "content", key: "content" },
-            { title: "createdDate", key: "createdDate" },
-            { title: "lastModified", key: "lastModified" },
-            { title: "authorId", key: "authorId" },
-            { title: "status", key: "status" },
-        ]);
+  name: 'ManuscriptListView',
+  components: { VDataTable },
+  props: {
+    value: Object,
+    editMode: Boolean,
+    isNew: Boolean
+  },
+  setup() {
+    const headers = ref([
+      { title: "원고 ID", key: "manuscriptId", sortable: true },
+      { title: "제목", key: "title" },
+      { title: "내용", key: "content" },
+      { title: "작가 ID", key: "authorId" },
+      { title: "상태", key: "status" },
+      { title: "수정일시", key: "updatedAt" }
+    ]);
 
-        const items = ref([]);
+    const items = ref([]);
 
-        onMounted(async () => {
-            try {
-                const response = await axios.get('/manuscriptLists');
-                const data = response.data._embedded.manuscriptLists;
-                data.forEach(obj => {
-                    obj.id = obj._links.self.href.split("/").pop();
-                });
-                items.value = data;
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
+    onMounted(async () => {
+      try {
+        const response = await axios.get('/manuscriptLists');
+        const data = response.data._embedded.manuscriptLists;
+
+        data.forEach(obj => {
+          obj.manuscriptId = Number(obj._links.self.href.split('/').pop()); // ✅ 핵심
+          obj.updatedAt = obj.lastModified || obj.createdDate;
+          if (obj.content?.length > 100) {
+            obj.content = obj.content.slice(0, 100) + '...';
+          }
         });
 
-        return {
-            headers,
-            items
-        };
-    }
+        items.value = data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    });
+
+    return { headers, items };
+  }
 }
 </script>

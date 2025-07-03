@@ -42,6 +42,7 @@
                         >
                             <td class="font-semibold">{{ idx + 1 }}</td>
                             <td class="whitespace-nowrap" label="manuscriptId">{{ val.manuscriptId }}</td>
+                            <td class="whitespace-nowrap" label="manuscriptId">{{ val.coverUrl }}</td>
                             <td class="whitespace-nowrap" label="PublicationDate">{{ val.publicationDate }}</td>
                             <td class="whitespace-nowrap" label="Genre">{{ val.genre }}</td>
                             <td class="whitespace-nowrap" label="Summary">{{ val.summary }}</td>

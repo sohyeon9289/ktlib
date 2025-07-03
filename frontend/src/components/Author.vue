@@ -35,7 +35,7 @@
         <div class="mb-2">* 등록 신청 시 수정이 불가능합니다</div>
         <v-row class="ma-0 pa-0">
             <v-spacer></v-spacer>
-            <v-btn width="64px" color="primary" @click="save" disabled="isSaveDisabled">
+            <v-btn width="64px" color="primary" @click="save" :disabled="isSaveDisabled">
                 저장
             </v-btn>
         </v-row>

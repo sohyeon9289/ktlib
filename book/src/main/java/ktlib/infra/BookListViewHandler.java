@@ -38,6 +38,14 @@ public class BookListViewHandler {
             e.printStackTrace();
         }
     }
+    @StreamListener(KafkaProcessor.INPUT)
+    public void printEverything(@Payload byte[] raw) {
+        String message = new String(raw);
+        if (message.contains("RequestedPublish")) {
+            System.out.println("🛰️ Raw 이벤트 수신됨: " + message);
+        }
+    }
+
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whenPreparedPublish_then_UPDATE_1(

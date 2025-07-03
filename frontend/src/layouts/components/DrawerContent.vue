@@ -39,20 +39,20 @@ import {
                 to: '/manuscriptLists',
             }"
         />
-        <VerticalNavSectionTitle :item="{ heading: '출간 관리' }" />
+        <!-- <VerticalNavSectionTitle :item="{ heading: '출간 관리' }" />
         <VerticalNavLink
             :item="{
                 title: '출간',
                 to: '/publishes',
             }"
-        />
+        /> -->
         <VerticalNavSectionTitle :item="{ heading: '책관리' }" />
-        <VerticalNavLink
+        <!-- <VerticalNavLink
             :item="{
                 title: '책',
                 to: '/books',
             }"
-        />
+        /> -->
         <VerticalNavLink
             :item="{
                 title: '책 목록',

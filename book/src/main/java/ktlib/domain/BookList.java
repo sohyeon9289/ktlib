@@ -13,7 +13,7 @@ import lombok.Data;
 public class BookList {
 
     @Id
-    //@GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookId;
 
     private Long authorId;
@@ -23,7 +23,6 @@ public class BookList {
     private Long publicationId;
     private Long manuscriptId;
     private String title;
-
     @Lob
     @Basic(fetch = FetchType.LAZY)
     private String content;

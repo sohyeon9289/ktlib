@@ -17,9 +17,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Transactional
 public class BookController {
-
     @Autowired
     private BookListRepository bookListRepository;
+
+    // @GetMapping("/bookLists")
+    // public ResponseEntity<?> getAllBooks() {
+    //     return ResponseEntity.ok(bookListRepository.findAll());
+    // }
 
     private final AzureBlobUploader uploader;
 

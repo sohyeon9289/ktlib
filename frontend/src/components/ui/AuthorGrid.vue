@@ -48,14 +48,14 @@
                             <td class="whitespace-nowrap" label="Email">{{ val.email }}</td>
                             <td class="whitespace-nowrap" label="PortfolioUrl">{{ val.portfolioUrl }}</td>
                             <td class="whitespace-nowrap" label="Status">{{ val.status }}</td>
-                            <!-- <v-row class="ma-0 pa-4 align-center">
+                            <v-row class="ma-0 pa-4 align-center">
                                 <v-spacer></v-spacer>
                                 <Icon style="cursor: pointer;" icon="mi:delete" @click="deleteRow(val)" />
-                            </v-row> -->
+                            </v-row>
                         </tr>
                     </tbody>
                 </v-table>
-            </div>
+            </div>s
         </div>
         <v-col>
             <v-dialog

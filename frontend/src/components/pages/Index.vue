@@ -52,14 +52,14 @@ export default {
           text: "원고목록",
           link: "/manuscriptLists",
       },
-      {
-          text: "출간",
-          link: "/publishes",
-      },
-      {
-          text: "책",
-          link: "/books",
-      },
+      // {
+      //     text: "출간",
+      //     link: "/publishes",
+      // },
+      // {
+      //     text: "책",
+      //     link: "/books",
+      // },
       {
           text: "책 목록",
           link: "/bookLists",
