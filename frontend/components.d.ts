@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     Address: typeof import('./src/components/vo/Address.vue')['default']
     Author: typeof import('./src/components/Author.vue')['default']
     AuthorGrid: typeof import('./src/components/ui/AuthorGrid.vue')['default']
+    AuthorGridManagement: typeof import('./src/components/ui/AuthorGridManagement.vue')['default']
     AuthorListView: typeof import('./src/components/AuthorListView.vue')['default']
     BaseDetailGrid: typeof import('./src/components/base-ui/BaseDetailGrid.vue')['default']
     BaseEntity: typeof import('./src/components/base-ui/BaseEntity.vue')['default']

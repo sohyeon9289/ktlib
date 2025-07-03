@@ -33,8 +33,12 @@ export default {
   data: () => ({
     cards: [
       {
-          text: "작가",
-          link: "/authors",
+          text: "작가(사용자)",
+          link: "/authors/author",
+      },
+      {
+          text: "작가(관리자)",
+          link: "/authors/manager",
       },
       {
           text: "작가 목록",

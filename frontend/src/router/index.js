@@ -7,8 +7,16 @@ const router = createRouter({
       path: '/',
       component: () => import('../components/pages/Index.vue'),
     },
+    // {
+    //   path: '/authors',
+    //   component: () => import('../components/ui/AuthorGridManagement.vue'),
+    // },
     {
-      path: '/authors',
+      path: '/authors/manager',
+      component: () => import('../components/ui/AuthorGridManagement.vue'),
+    },
+    {
+      path: '/authors/author',
       component: () => import('../components/ui/AuthorGrid.vue'),
     },
     {
