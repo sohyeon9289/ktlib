@@ -10,8 +10,14 @@ import {
         <VerticalNavSectionTitle :item="{ heading: '작가관리' }" />
         <VerticalNavLink
             :item="{
-                title: '작가',
-                to: '/authors',
+                title: '작가(사용자)',
+                to: '/authors/author',
+            }"
+        />
+        <VerticalNavLink
+            :item="{
+                title: '작가(관리자)',
+                to: '/authors/manager',
             }"
         />
         <VerticalNavLink
