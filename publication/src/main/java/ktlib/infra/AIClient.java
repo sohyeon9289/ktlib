@@ -34,15 +34,16 @@ public class AIClient {
 
     // 2. 장르 분류
     public String classifyGenre(String content) {
-    String prompt = "Classify the following story into one of the predefined Korean genres below. " +
-            "Respond with only the most appropriate sub-genre in Korean, and nothing else.\n\n" +
-            "**Available genre categories (Korean):**\n" +
-            "- 소설: 로맨스, 판타지, 미스터리, 성장, SF, 현실극\n" +
-            "- 인문: 심리학, 철학, 에세이\n" +
-            "- 사회: 정치, 경제, 역사\n" +
-            "- 과학: 자연과학, IT, 공학\n" +
-            "- 청소년: 동화, 청소년소설, 학습\n\n" +
-            "Story:\n" + content;
+    String prompt = "Classify the following story into one of the predefined genres listed below.\n" +
+        "Respond with only the most appropriate sub-genre **in English**, and nothing else.\n\n" +
+        "**Available genre categories:**\n" +
+        "- Fiction: Romance, Fantasy, Mystery, Coming-of-Age, Science Fiction, Realistic\n" +
+        "- Humanities: Psychology, Philosophy, Essay\n" +
+        "- Society: Politics, Economics, History\n" +
+        "- Science: Natural Science, IT, Engineering\n" +
+        "- Youth: Fairy Tale, Young Adult, Educational\n\n" +
+        "Story:\n" + content;
+
 
     return callChatGPT(prompt).trim();
 }

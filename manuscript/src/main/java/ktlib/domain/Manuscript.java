@@ -24,7 +24,9 @@ public class Manuscript {
     private Long manuscriptId;
 
     private String title;
-
+    
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
     private String content;
 
     private String status;

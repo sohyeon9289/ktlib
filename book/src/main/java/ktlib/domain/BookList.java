@@ -23,9 +23,15 @@ public class BookList {
     private Long publicationId;
     private Long manuscriptId;
     private String title;
+
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
     private String content;
+
     private String genre;
+    @Column(length = 1024)
     private String summary;
+    @Column(length = 1024)
     private String coverUrl;
     private String authorName;
     private Long readCost;
