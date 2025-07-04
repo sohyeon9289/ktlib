@@ -35,7 +35,7 @@
         <div class="mb-2">* 등록 신청 시 수정이 불가능합니다</div>
         <v-row class="ma-0 pa-0">
             <v-spacer></v-spacer>
-            <v-btn width="64px" color="primary" @click="save" :disabled="isSaveDisabled">
+            <v-btn width="64px" color="primary" @click="save">
                 저장
             </v-btn>
         </v-row>
@@ -63,16 +63,6 @@ export default {
         }
     }),
     created(){
-    },
-    computed:{
-        isSaveDisabled() {
-      // 하나라도 빈 값이 있으면 true (버튼 비활성화)
-      return !this.value.authorName ||
-        !this.value.authorNickname ||
-        !this.value.phoneNumber ||
-        !this.value.email ||
-        !this.value.portfolioUrl;
-    },
     },
     methods: {
     },
